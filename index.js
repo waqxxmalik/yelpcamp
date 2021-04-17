@@ -185,7 +185,7 @@ app.post("/campgrounds/:id/comments", isLoggedIn, function(req, res){
 });
 
 app.get("/campgrounds/:id/comments/:comment_id/edit", isLoggedIn, checkUserComment, function(req, res){
-   res.send("edit fuckin route")    
+   res.send()    
 });
 
 
