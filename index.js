@@ -185,13 +185,19 @@ app.post("/campgrounds/:id/comments", isLoggedIn, function(req, res){
 });
 
 app.get("/campgrounds/:id/comments/:comment_id/edit", isLoggedIn, checkUserComment, function(req, res){
-   res.send()    
+  Comment.findById(req.params.comment_id, function(err, foundcomment){
+	if(err){
+		console.log(err)
+	}  else {
+		res.render("comments/edit", {campground_id: req.params.id, comment: foundcomment})
+	}
+  });   
 });
 
 
 
-app.put("/campgrounds/:id/comments/:commentId", isLoggedIn, function(req, res){
-   Comment.findByIdAndUpdate(req.params.commentId, req.body.comment, function(err, comment){
+app.put("/campgrounds/:id/comments/:comment_id", isLoggedIn, function(req, res){
+   Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err, comment){
        if(err){
           console.log(err);
            res.render("edit");
@@ -201,30 +207,19 @@ app.put("/campgrounds/:id/comments/:commentId", isLoggedIn, function(req, res){
    }); 
 });
 
-app.delete("/campgrounds/:id/comments/:commentId", isLoggedIn, checkUserComment, function(req, res){
+app.delete("/campgrounds/:id/comments/:comment_id", isLoggedIn, checkUserComment, function(req, res){
   // find campground, remove comment from comments array, delete comment in db
-  Campground.findByIdAndUpdate(req.params.id, {
-    $pull: {
-      comments: req.comment.id
-    }
-  }, function(err) {
-    if(err){ 
-        console.log(err)
-        req.flash('error', err.message);
-        res.redirect('/');
-    } else {
-        req.comment.remove(function(err) {
-          if(err) {
-            req.flash('error', err.message);
-            return res.redirect('/');
-          }
-          req.flash('error', 'Comment deleted!');
-          res.redirect("/campgrounds/" + req.params.id);
-        });
-    }
-  });
+  Campground.findByIdAndUpdateAndRemove(req.params.comment_id, function(err) {
+	if(err) {
+	console.log(err)
+			res.redirect("/campgrounds/" + req.params._id)
+	
+	}  else {
+		res.redirect("/campgrounds/" + req.params._id)
+	}
+  
 });
-
+});	
 app.get("/register", function(req, res){
 	res.render("register")
 })
@@ -282,7 +277,7 @@ app.get("/logout", function(req, res) {
   }
 
    function checkUserComment(req, res, next){
-    Comment.findById(req.params.commentId, function(err, foundComment){
+    Comment.findById(req.params.comment_id, function(err, foundComment){
        if(err){
            console.log(err);
            req.flash('error', 'Sorry, that comment does not exist!');
