@@ -4,12 +4,17 @@
   "description": "A sample Node.js app using Express 4",
   "engines": {
     "node": "14.x",
-	 "npm": "6.14.11" 
+    "npm": "6.14.11"
   },
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "ng": "ng",
+    "start": "node index.js",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "heroku-postbuild": "ng build"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
