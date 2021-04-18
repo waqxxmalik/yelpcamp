@@ -8,13 +8,8 @@
   },
   "main": "index.js",
   "scripts": {
-    "ng": "ng",
-    "start": "node index.js",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "heroku-postbuild": "ng build"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -29,10 +24,8 @@
     "mongoose": "^5.12.4",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "passport-local-mongoose": "^6.1.0"
-  },
-  "devDependencies": {
-    "got": "^11.3.0",
+    "passport-local-mongoose": "^6.1.0",
+	 "got": "^11.3.0",
     "tape": "^4.7.0"
   },
   "repository": {
