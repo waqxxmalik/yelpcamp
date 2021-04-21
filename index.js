@@ -16,9 +16,9 @@
 // assign mongoose promise library and connect to database
 mongoose.Promise = global.Promise;
 
-const databaseUri = process.env.MONGODB_URI || "mongodb+srv://malikwaqasarif:rockstarmalik@cluster0.tx2lq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const databaseUri = process.env.MONGODB_URI;
 
-mongoose.connect(databaseUri, { useUnifiedTopology: true }
+mongoose.connect("mongodb+srv://malikwaqasarif:rockstarmalik@cluster0.tx2lq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { useUnifiedTopology: true }
 				 ,{ useNewUrlParser: true })
       .then(() => console.log(`Database connected`))
       .catch(err => console.log(`Database connection error: ${err.message}`));
