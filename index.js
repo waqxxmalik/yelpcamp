@@ -227,7 +227,7 @@ app.get("/register", function(req, res){
 })
 app.post("/register", function(req, res){
 	var newuser = new User({username: req.body.username})
-	User.register(newUser, req.body.password, function(err, user){
+	User.register(newuser, req.body.password, function(err, user){
        if (err){
            req.flash("error", err.message);
            return res.redirect("register");
