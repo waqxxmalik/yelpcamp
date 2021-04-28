@@ -123,7 +123,7 @@ app.get("/campgrounds/:id/edit",isLoggedIn, checkUserCampground, function(req, r
 
 // PUT - updates campground in the database
 app.put("/campgrounds/:id", isLoggedIn,checkUserCampground, function(req, res){
-    Campground.findByIdAndUpdate(req.params.id, function(err, campground){
+    Campground.findByIdAndUpdate(req.params.id, req.body.campground,  function(err, campground){
         if(err){
             req.flash("error", err.message);
             res.redirect("back");
@@ -202,7 +202,8 @@ app.put("/campgrounds/:id/comments/:comment_id", isLoggedIn, function(req, res){
           console.log(err);
            res.render("edit");
        } else {
-           res.redirect("/campgrounds/" + req.params.id);
+		   req.flash("success", "Successfully Updated")
+           res.redirect("/campgrounds/" + Campground._id);
        }
    }); 
 });
@@ -215,6 +216,7 @@ app.delete("/campgrounds/:id/comments/:comment_id", isLoggedIn, checkUserComment
 			res.redirect("/campgrounds/" + req.params._id)
 	
 	}  else {
+	   req.flash("error", "Deleted Comment")
 		res.redirect("/campgrounds/" + req.params._id)
 	}
   
@@ -238,6 +240,7 @@ app.post("/register", function(req, res){
 });
 app.get("/login", function(req, res) {
     res.render("login");
+	req.flash("error", "You must have to Login First")
 });
 
 app.post("/login", passport.authenticate("local", {
@@ -270,7 +273,7 @@ app.get("/logout", function(req, res) {
       } else if(foundCampground.author.id.equals(req.user._id)){
           next();
       } else {
-          req.flash('error', 'You don\'t have permission to do that!');
+          req.flash('error', 'You dont have permission to do that!');
           res.redirect('/campgrounds/' + req.params.id);
       }
     });
@@ -285,7 +288,7 @@ app.get("/logout", function(req, res) {
        } else if(foundComment.author.id.equals(req.user._id)){
             next();
        } else {
-           req.flash('error', 'You don\'t have permission to do that!');
+           req.flash('error', 'You dont have permission to do that!');
            res.redirect('/campgrounds/' + req.params.id);
        }
     });
