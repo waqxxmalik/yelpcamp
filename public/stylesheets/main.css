@@ -79,15 +79,14 @@ body {
 	float: right;
 }
 
-.heading h1 {
+
+.dark .navbar-brand{
+	color: white;
+}
+.iconic {
+	padding-right: 10px;
 	
 }
-
-.campicon {
-	color : black;
-	font-size: 70px;
-}
-
 .dark .divide .icon{
 color: white;
 display: inline;
