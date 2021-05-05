@@ -68,16 +68,12 @@ body {
     .jumbotron .lang-logo img {
       max-width: 100%; }
 
-.dark .divide .left .act .links {
+.dark .divide .linkss .act .links {
 	color: white;
-   	margin-left: 20px;
-	
+	margin-right: 20px;
 
 }
 
-.dark .divide .left {
-	float: right;
-}
 
 
 .dark .navbar-brand{
