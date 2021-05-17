@@ -25,7 +25,7 @@ mongoose.connect("mongodb+srv://malikwaqasarif:rockstarmalik@cluster0.tx2lq.mong
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "public"));
 app.use(methodOverride('_method'));
 app.use(cookieParser('secret'));
 //require mome //seed the database
