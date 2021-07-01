@@ -18,7 +18,7 @@ mongoose.Promise = global.Promise;
 
 const databaseUri = process.env.MONGODB_URI;
 
-mongoose.connect("mongodb+srv://malikwaqasarif:rockstarmalik@cluster0.tx2lq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { useUnifiedTopology: true }
+mongoose.connect("mongodb+srv://waqaskhan:superstar52@cluster0.fefb5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { useUnifiedTopology: true }
 				 ,{ useNewUrlParser: true })
       .then(() => console.log(`Database connected`))
       .catch(err => console.log(`Database connection error: ${err.message}`));
