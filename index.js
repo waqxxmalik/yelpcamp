@@ -11,14 +11,8 @@
     User        = require("./models/user"),
     session = require("express-session"),
     methodOverride = require("method-override");
-// configure dotenv
 
-// assign mongoose promise library and connect to database
-mongoose.Promise = global.Promise;
-
-const databaseUri = process.env.MONGODB_URI;
-
-mongoose.connect(databaseUri, { useUnifiedTopology: true }
+mongoose.connect("mongodb+srv://waqasarif:treadstone@cluster0.fefb5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { useUnifiedTopology: true }
 				 ,{ useNewUrlParser: true })
       .then(() => console.log(`Database connected`))
       .catch(err => console.log(`Database connection error: ${err.message}`));
