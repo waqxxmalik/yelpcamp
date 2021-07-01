@@ -6,6 +6,10 @@
     "node": "6.11.1"
   },
   "main": "index.js",
+   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  }, 	
   "dependencies": {
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
@@ -21,9 +25,6 @@
     "session": "^0.1.0"
   },
   "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/heroku/node-js-getting-started.git"
