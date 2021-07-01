@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A barebones Node.js app using [Express 4](http://expressjs.com/).",
   "main": "index.js",
+  "engines": {
+    "node": "6.11.1"
+  },
 "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
