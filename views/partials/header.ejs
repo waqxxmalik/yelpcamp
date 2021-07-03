@@ -18,6 +18,11 @@
 <head>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
   <style>
+	  
+	  nav {
+		  position: absolute;
+		  z-index: 1;
+	  } 
     /* Stackoverflow preview fix, please ignore */
     .navbar-nav {
       flex-direction: row;
@@ -36,7 +41,7 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="#">Yelpcamp</a>
 
     <ul class="navbar-nav ml-auto linkss">
    <% if(!currentUser) { %>
